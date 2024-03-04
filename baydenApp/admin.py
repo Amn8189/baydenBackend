@@ -4,8 +4,11 @@ from .models import Event, Attendee
 # Register your models here.
 class EventAdmin(admin.ModelAdmin):
     model = Event
-    list_display = ("name")
+    list_display = ("name",)
 
 class AttendeeAdmin(admin.ModelAdmin):
     model = Attendee
     list_display = ("firstname", "email")
+
+admin.site.register(Event, EventAdmin)
+admin.site.register(Attendee, AttendeeAdmin)

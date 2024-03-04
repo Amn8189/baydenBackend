@@ -12,3 +12,8 @@ class Attendee(models.Model):
     country = models.CharField(max_length=20)
     phonenumber = models.CharField(max_length=20)
     event = models.ForeignKey(Event, models.CASCADE)
+
+class Subscriber(models.Model):
+    firstname = models.CharField(max_length=50)
+    secondname = models.CharField(max_length=50)
+    email = models.EmailField()
