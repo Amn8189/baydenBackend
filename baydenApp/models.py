@@ -14,6 +14,6 @@ class Attendee(models.Model):
     event = models.ForeignKey(Event, models.CASCADE)
 
 class Subscriber(models.Model):
-    firstname = models.CharField(max_length=50)
-    secondname = models.CharField(max_length=50)
+    firstname = models.CharField(max_length=20)
+    secondname = models.CharField(max_length=20)
     email = models.EmailField()

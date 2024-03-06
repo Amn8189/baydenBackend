@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Attendee
+from .models import Event, Attendee, Subscriber
 
 # Register your models here.
 class EventAdmin(admin.ModelAdmin):
@@ -10,5 +10,10 @@ class AttendeeAdmin(admin.ModelAdmin):
     model = Attendee
     list_display = ("firstname", "email")
 
+class SubscriberAdmin(admin.ModelAdmin):
+    model = Subscriber
+    list_display = ("firstname", "firstname", "email")
+
+admin.site.register(Subscriber, SubscriberAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Attendee, AttendeeAdmin)

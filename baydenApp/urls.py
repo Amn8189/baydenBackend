@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import homepage
+from .views import homepage, index
 
 #Transforming method to url
 urlpatterns = [
-    path("", homepage, name="homepage")
+    path("test/", homepage, name="homepage"),
+    path("", index, name="index")
 ]
