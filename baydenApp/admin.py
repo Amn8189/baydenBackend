@@ -12,7 +12,7 @@ class AttendeeAdmin(admin.ModelAdmin):
 
 class SubscriberAdmin(admin.ModelAdmin):
     model = Subscriber
-    list_display = ("firstname", "firstname", "email")
+    list_display = ("firstname", "secondname", "email")
 
 admin.site.register(Subscriber, SubscriberAdmin)
 admin.site.register(Event, EventAdmin)
