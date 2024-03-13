@@ -11,6 +11,7 @@ class Attendee(models.Model):
     gender = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
     phonenumber = models.CharField(max_length=20)
+    job_title = models.CharField(max_length=20)
     event = models.ForeignKey(Event, models.CASCADE)
 
 class Subscriber(models.Model):
