@@ -17,3 +17,8 @@ class SubscriberAdmin(admin.ModelAdmin):
 admin.site.register(Subscriber, SubscriberAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
+
+
+#####database$$#####
+# kuazone meetup ------ identidier /- ID / Primary Key - (p.k) ------1
+# iot meetup ---2

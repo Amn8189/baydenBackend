@@ -35,7 +35,7 @@ def index(request : HttpRequest):
         return render(request=request, template_name="index.html")
 
 
-def reserve(request : HttpRequest):
+def reserve(request : HttpRequest, pk):
     if request.method == "GET":
         return render(request=request, template_name="reserve.html")
     elif request.method == "POST":
@@ -51,14 +51,17 @@ def reserve(request : HttpRequest):
         print(new_attendee.is_valid())
         if new_attendee.is_valid():
             attendee = Attendee()
-            Attendee.firstname =  new_attendee.cleaned_data["firstname"]
-            Attendee.secondname =  new_attendee.cleaned_data["secondname"]
-            Attendee.email =  new_attendee.cleaned_data["email"]
-            Attendee.gender =  new_attendee.cleaned_data["gender"]
-            Attendee.country =  new_attendee.cleaned_data["country"]
-            Attendee.phonenumber =  new_attendee.cleaned_data["phonenumber"]
-            Attendee.job_title =  new_attendee.cleaned_data["job_title"]
-            Attendee.event =  new_attendee.cleaned_data["event"]
+            attendee.firstname =  new_attendee.cleaned_data["firstname"]
+            attendee.lastname  =  new_attendee.cleaned_data["lastname"]
+            attendee.email =  new_attendee.cleaned_data["email"]
+            attendee.gender =  new_attendee.cleaned_data["gender"]
+            attendee.country =  new_attendee.cleaned_data["country"]
+            attendee.phone_number =  new_attendee.cleaned_data["phone_number"]
+            attendee.company_name =  new_attendee.cleaned_data["company_name"]
+            attendee.job_title =  new_attendee.cleaned_data["job_title"]
+            new_event = Event.objects.get_or_create(pk=pk)[0]
+            attendee.event = new_event
+            attendee.save()
 
         return render(request=request, template_name="reserve.html")
 

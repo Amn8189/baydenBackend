@@ -5,5 +5,5 @@ from .views import homepage, index, reserve
 urlpatterns = [
     path("test/", homepage, name="homepage"),
     path("", index, name="index"),
-    path("reserve/", reserve, name="reserve")
+    path("reserve/<int:pk>", reserve, name="reserve")
 ]
