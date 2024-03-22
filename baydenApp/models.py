@@ -16,8 +16,8 @@ class Organizer(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=20, default="")
-    #  time_of_attendance = models.DateTimeField(default=now())
     image = models.ImageField(upload_to='Images/', blank=True)
+    time_of_attendance = models.DateTimeField(default = now)
     organizer = models.ForeignKey(Organizer, models.CASCADE, default=1)
 
 class Attendee(models.Model):

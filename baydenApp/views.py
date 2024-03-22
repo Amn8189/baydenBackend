@@ -65,18 +65,10 @@ def reserve(request : HttpRequest, pk):
 
         return render(request=request, template_name="reserve.html")
 
+from .forms import EventForm
+def create_event(request :HttpRequest):
+    event_form = EventForm()
+    return render(request=request,
+                   template_name="create_event.html",
+                   context={"event_form":event_form})
 
-
-
-
-
-
-
-
-
-#csrf - cross site request forgery
-"""-----Types of HTTP methods-----"""
-#1. GET REQUEST -- requestions to recieve data
-#2. POST REQUEST -- SENDING DATA
-#3. PUT REQUEST -- CHANGING DATA
-#4. DELETE REQUEST -- remove data

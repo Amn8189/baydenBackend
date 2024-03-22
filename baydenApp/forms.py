@@ -1,5 +1,32 @@
-from django.forms import Form
+from django.forms import Form, ModelForm, TextInput, FileInput
 from django import forms
+from .models import Event
+
+class EventForm(ModelForm):
+    class Meta:
+        model = Event
+        fields = ['name', 'location', 'image', 'time_of_attendance']
+        widgets = {
+            'name': TextInput(attrs={
+                'class': 'form-control',
+                "style":"width:200px", 
+        }),
+            'location': TextInput(attrs={
+                'class': 'form-control',
+                "style":"width:200px", 
+        }),
+            'image': FileInput(attrs={
+                'class': 'form-control',
+                "style":"width:200px", 
+        }),
+            'time_of_attendance': TextInput(attrs={
+                'class': 'form-control',
+                "style":"width:200px", 
+        }),
+
+
+        }
+
 
 class SubscriberForm(Form):
     firstname = forms.CharField(max_length=20)
