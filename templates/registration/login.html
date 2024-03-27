@@ -25,13 +25,9 @@
 </head>
 
 <body>
-    <form method="POST" enctype="multipart/form-data" class="shadow-lg">
-		{% csrf_token %}
-        {{event_form.name}}
-        {{event_form.location}}
-        {{event_form.image}}
-        {{event_form.time_of_attendance}}
-		<button type="submit" class="btn btn-primary">Send</button>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </body>
-</html>

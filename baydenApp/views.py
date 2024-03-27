@@ -68,7 +68,24 @@ def reserve(request : HttpRequest, pk):
 from .forms import EventForm
 def create_event(request :HttpRequest):
     event_form = EventForm()
+    if request.method == "POST":
+        event_form = EventForm(request.POST, files=request.FILES)
+        if event_form.is_valid():
+            event_form.save()
+        else:
+            print(event_form.errors)
+
     return render(request=request,
                    template_name="create_event.html",
                    context={"event_form":event_form})
+
+
+
+from django.views.generic import CreateView
+from .forms import OrganizerCreationForm
+from django.urls import reverse_lazy
+class SignupView(CreateView):
+    form_class = OrganizerCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 

@@ -1,6 +1,7 @@
 from django.forms import Form, ModelForm, TextInput, FileInput
 from django import forms
-from .models import Event
+from .models import Event, Organizer
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class EventForm(ModelForm):
     class Meta:
@@ -42,3 +43,13 @@ class AttendeeForm(Form):
     job_title = forms.CharField(max_length=20)
     phone_number = forms.CharField(max_length=20)
     gender = forms.CharField(max_length=20)
+
+class OrganizerCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Organizer
+        fields = ('firstname', 'secondname', 'email', 'phone_number') + UserCreationForm.Meta.fields
+
+class OrganizerChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = Organizer
+        fields = UserChangeForm.Meta.fields

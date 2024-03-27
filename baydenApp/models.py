@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Subscriber(models.Model):
@@ -7,7 +8,7 @@ class Subscriber(models.Model):
     secondname = models.CharField(max_length=20)
     email = models.EmailField()
 
-class Organizer(models.Model):
+class Organizer(AbstractUser):
     firstname = models.CharField(max_length=20)
     secondname = models.CharField(max_length=20)
     email = models.EmailField()
@@ -18,7 +19,7 @@ class Event(models.Model):
     location = models.CharField(max_length=20, default="")
     image = models.ImageField(upload_to='Images/', blank=True)
     time_of_attendance = models.DateTimeField(default = now)
-    organizer = models.ForeignKey(Organizer, models.CASCADE, default=1)
+    # organizer = models.ForeignKey(Organizer, models.CASCADE, default=1)
 
 class Attendee(models.Model):
     firstname = models.CharField(max_length=50)

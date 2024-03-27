@@ -35,6 +35,11 @@
 		<span class="text-white border-end border-white border-1 px-3">
 			<i class="bi bi-geo-alt-fill"></i>Limuru Road, Nairobi Kenya
 		</span>
+		<span class="text-white px-3 float-end">
+			{% if user.is_authenticated %}
+				{{user.username}}
+			{% endif %}
+		</span>
 	</header>
 
 	<nav class="navbar navbar-expand-lg sticky-top shadow bg-white">
